@@ -6,7 +6,7 @@
 			"type": "shell",
 			"command": "clisp hello-world.lisp",
 			"problemMatcher": []
-		}
+		},
 		{
 			"label": "Run Number Guess",
 			"type": "shell",
