@@ -7,5 +7,11 @@
 			"command": "clisp hello-world.lisp",
 			"problemMatcher": []
 		}
+		{
+			"label": "Run Number Guess",
+			"type": "shell",
+			"command": "clisp number-guess.lisp",
+			"problemMatcher": []
+		}
 	]
 }
