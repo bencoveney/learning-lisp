@@ -2,15 +2,21 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Run Hello World",
+			"label": "Run 0: Hello World",
 			"type": "shell",
-			"command": "clisp hello-world.lisp",
+			"command": "clisp 0-hello-world.lisp",
 			"problemMatcher": []
 		},
 		{
-			"label": "Run Number Guess",
+			"label": "Run 1: Number Guess",
 			"type": "shell",
-			"command": "clisp number-guess.lisp",
+			"command": "clisp 1-number-guess.lisp",
+			"problemMatcher": []
+		},
+		{
+			"label": "Run 2: Definitions",
+			"type": "shell",
+			"command": "clisp 2-definitions.lisp",
 			"problemMatcher": []
 		}
 	]
