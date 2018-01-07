@@ -7,6 +7,7 @@
 		{ "label": "Run 1: Number Guess", "command": "clisp 1-number-guess.lisp", "problemMatcher": [] },
 		{ "label": "Run 2: Definitions", "command": "clisp 2-definitions.lisp", "problemMatcher": [] },
 		{ "label": "Run 3: Syntax", "command": "clisp 3-syntax.lisp", "problemMatcher": [] },
-		{ "label": "Run 4: Conditionals", "command": "clisp 4-conditionals.lisp", "problemMatcher": [] }
+		{ "label": "Run 4: Conditionals", "command": "clisp 4-conditionals.lisp", "problemMatcher": [] },
+		{ "label": "Run 5: Text Game Engine", "command": "clisp 5-text-game-engine.lisp", "problemMatcher": [] }
 	]
 }
