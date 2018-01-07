@@ -1,23 +1,11 @@
 {
 	"version": "2.0.0",
+	"type": "shell",
+
 	"tasks": [
-		{
-			"label": "Run 0: Hello World",
-			"type": "shell",
-			"command": "clisp 0-hello-world.lisp",
-			"problemMatcher": []
-		},
-		{
-			"label": "Run 1: Number Guess",
-			"type": "shell",
-			"command": "clisp 1-number-guess.lisp",
-			"problemMatcher": []
-		},
-		{
-			"label": "Run 2: Definitions",
-			"type": "shell",
-			"command": "clisp 2-definitions.lisp",
-			"problemMatcher": []
-		}
+		{ "label": "Run 0: Hello World", "command": "clisp 0-hello-world.lisp", "problemMatcher": [] },
+		{ "label": "Run 1: Number Guess", "command": "clisp 1-number-guess.lisp", "problemMatcher": [] },
+		{ "label": "Run 2: Definitions", "command": "clisp 2-definitions.lisp", "problemMatcher": [] },
+		{ "label": "Run 3: Syntax", "command": "clisp 3-syntax.lisp", "problemMatcher": [] }
 	]
 }
