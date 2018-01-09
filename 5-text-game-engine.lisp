@@ -11,6 +11,8 @@
 (defun describe-location (location nodes)
     (cadr (assoc location nodes)))
 
+(print (describe-location 'living-room *nodes*))
+
 ; Connections between the places
 (defparameter *edges* '(
     (living-room (garden west door) (attic upstairs ladder))
@@ -23,6 +25,8 @@
 (defun describe-path (edge)
     `(there is a  ,(caddr edge) going ,(cadr edge) from here.))
 
+(print (describe-path (cadar *edges*)))
+
 ; #' is shorthand for the function operator
 ; #'car => (function car)
 
@@ -31,3 +35,70 @@
     (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
 
 (print (describe-paths 'living-room *edges*))
+
+; Objects in the game
+(defparameter *objects* '(whiskey bucket from chain))
+
+; Locations of objects in the game
+(defparameter *object-locations* '(
+    (whiskey living-room)
+    (bucket living-room)
+    (chain garden)
+    (frog garden)))
+
+; Finds the objects at the specified location
+(defun objects-at (location objects object-locations)
+    (labels
+        (
+            (at-location-predicate (object)
+                (eq (cadr (assoc object object-locations)) location)))
+        (remove-if-not #'at-location-predicate objects)))
+
+(print (objects-at 'living-room *objects* *object-locations*))
+
+; Describes the objects at a specified location
+(defun describe-objects (location objects object-locations)
+    (labels
+
+        (
+            (describe-object (object) `(you see a ,object on the floor.)))
+        (apply #'append (mapcar #'describe-object (objects-at location objects object-locations)))))
+
+(print (describe-objects 'living-room *objects* *object-locations*))
+
+; Current location - global variable
+(defparameter *location* 'living-room)
+
+; Compiles all descriptions at the current location - accesses globals
+(defun look ()
+    (append
+        (describe-location *location* *nodes*)
+        (describe-paths *location* *edges*)
+        (describe-objects *location* *objects* *object-locations*)))
+
+(print (look))
+
+
+; Walk in the specified direction
+(defun walk (direction)
+    (let
+        (
+            ; Find the next edge from the current location
+            (next
+                ; (find a b c d)
+                ; Look in list b for an element that has a in the key of the cadr position
+                ; e.g. look for the edge that has 'west as the 2nd symbol
+                (find
+                    direction
+                    ; Edges for the current location
+                    (cdr (assoc *location* *edges*))
+                    :key
+                    #'cadr)))
+        (if next
+            ; If we found an edge, walk along it
+            (progn
+                (setf *location* (car next))
+                (look))
+            '(You cannot go that way.))))
+
+(print (walk 'west))
