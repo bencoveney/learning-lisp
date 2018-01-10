@@ -78,7 +78,6 @@
 
 (print (look))
 
-
 ; Walk in the specified direction
 (defun walk (direction)
     (let
@@ -102,3 +101,27 @@
             '(You cannot go that way.))))
 
 (print (walk 'west))
+
+; Picks up the specified object at the current location
+(defun pickup (object)
+    (cond
+        (
+            ; Check the object is in the list of objects at the current location
+            (member object (objects-at *location* *objects* *object-locations*))
+            ; Add a link between the object and your inventory to the list of object locations
+            ; The object locations will contain 2 entries for the object but assoc will give us the first
+            (push (list object 'body) *object-locations*)
+            `(You are now carrying the ,object))
+        (
+            T
+            (You cannot get that.))))
+
+(walk 'east)
+
+(print (pickup 'whiskey))
+
+; Shows the current inventory
+(defun inventory ()
+    (cons 'items- (objects-at 'body *objects* *object-locations*)))
+
+(print (inventory))
