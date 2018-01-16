@@ -9,5 +9,6 @@
 		{ "label": "Run 3: Syntax", "command": "clisp 3-syntax.lisp", "problemMatcher": [] },
 		{ "label": "Run 4: Conditionals", "command": "clisp 4-conditionals.lisp", "problemMatcher": [] },
 		{ "label": "Run 5: Text Game Engine", "command": "clisp 5-text-game-engine.lisp", "problemMatcher": [] }
+		{ "label": "Run 6: Reading and Printing", "command": "clisp 6-reading-printing.lisp", "problemMatcher": [] }
 	]
 }
