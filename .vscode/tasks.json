@@ -10,6 +10,7 @@
 		{ "label": "Run 4: Conditionals", "command": "clisp 4-conditionals.lisp", "problemMatcher": [] },
 		{ "label": "Run 5: Text Game Engine", "command": "clisp 5-text-game-engine.lisp", "problemMatcher": [] },
 		{ "label": "Run 6A: Reading and Printing", "command": "clisp 6a-reading-printing.lisp", "problemMatcher": [] },
-		{ "label": "Run 6B: Game Loop", "command": "clisp 6b-game-loop.lisp", "problemMatcher": [] }
+		{ "label": "Run 6B: Game Loop", "command": "clisp 6b-game-loop.lisp", "problemMatcher": [] },
+		{ "label": "Run 6C: Lambdas", "command": "clisp 6c-lambdas.lisp", "problemMatcher": [] }
 	]
 }
