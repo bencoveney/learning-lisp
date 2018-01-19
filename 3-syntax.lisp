@@ -65,6 +65,9 @@
 ; Verbose list building
 (print (cons 'Chicken (cons 'Cow (cons 'Sheep ()))))
 
+; Using dotted syntax
+(print '(Chicken . (Cow . (Sheep . nil))))
+
 ; CAR and CDR
 ; Contents of address register
 ; Contents of decrement register
