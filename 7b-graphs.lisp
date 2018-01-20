@@ -118,3 +118,41 @@
         (lambda () (graph->dot nodes edges))))
 
 (graph->png "graphs\\wizard.dot" *wizard-nodes* *wizard-edges*)
+
+; Convert edges to undirected DOT edges
+(defun undirected-edges->dot (edges)
+    ; Iterate through each edge but (unlike mapcar) each iteration will include the remainder of the list
+    (maplist
+        (lambda
+            (remaining-edges)
+            ; Iterate through the first (current) set of edges
+            (mapc
+                (lambda
+                    (edge)
+                    (unless
+                        ; Don't proceed if the edge ends somewhere that is still in the remaining list
+                        (assoc (car edge) (cdr remaining-edges))
+                        (fresh-line)
+                        (princ (dot-name (caar remaining-edges)))
+                        (princ "--")
+                        (princ (dot-name (car edge)))
+                        (princ "[label=\"")
+                        (princ (dot-label (cdr edge)))
+                        (princ "\"];")))
+                (cdar remaining-edges)))
+        edges))
+
+; Creates the complete undirected DOT document
+(defun undirected-graph->dot (nodes edges)
+    (princ "graph{")
+    (nodes->dot nodes)
+    (undirected-edges->dot edges)
+    (princ "}"))
+
+; Create the full undirected graph and create a png
+(defun undirected-graph->png (file-name nodes edges)
+    (dot->png
+        file-name
+        (lambda () (undirected-graph->dot nodes edges))))
+
+(undirected-graph->png "graphs\\undirected-wizard.dot" *wizard-nodes* *wizard-edges*)
