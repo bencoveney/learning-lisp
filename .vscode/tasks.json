@@ -12,6 +12,7 @@
 		{ "label": "Run 6A: Reading and Printing", "command": "clisp 6a-reading-printing.lisp", "problemMatcher": [] },
 		{ "label": "Run 6B: Game Loop", "command": "clisp 6b-game-loop.lisp", "problemMatcher": [] },
 		{ "label": "Run 6C: Lambdas", "command": "clisp 6c-lambdas.lisp", "problemMatcher": [] },
-		{ "label": "Run 7: Weird Lists", "command": "clisp 7-weird-list.lisp", "problemMatcher": [] }
+		{ "label": "Run 7A: Weird Lists", "command": "clisp 7a-weird-list.lisp", "problemMatcher": [] },
+		{ "label": "Run 7B: Graphs", "command": "clisp 7b-graphs.lisp", "problemMatcher": [] }
 	]
 }
